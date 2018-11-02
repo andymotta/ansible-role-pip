@@ -11,4 +11,5 @@
     virtualenv: "{{ item.virtualenv | default(omit) }}"
     state: "{{ item.state | default(omit) }}"
     executable: "{{ 'pip3' if pip_package == 'python3-pip' else 'pip' }}"
+    extra_args: "{{ item.extra_args | default(omit) }}"
   with_items: "{{ pip_install_packages }}"
